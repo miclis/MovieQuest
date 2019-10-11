@@ -1,13 +1,15 @@
 doctype html
 html
   head
-    title= title
+    title The Movie Survey
     link(rel='stylesheet', href='/static/stylesheets/style.css')
   body
+    .container
+    h1 The Movie Survey!
     block content
     block foot
       #footer
         p.attribution
           span This product uses the TMDb API but is not endorsed or certified by TMDb.
-          img.attribution__logo(src='/static/images/tmdb_logo_dark.svg' alt='')
+          img.attribution__logo(src='/static/images/tmdb_logo.svg' alt='')
         

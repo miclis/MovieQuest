@@ -1,37 +1,13 @@
 extends layout
 
 block content
-  .container
-  h1 The movie Store!
   figure.movie
-    p.movie__price $3199
-    a.movie__back(href='overview.html')
-      span.emoji-left &#x1F448;
-      | Back
-    .movie__hero
-      img.movie__img(src='data/img/macbook-pro-15.jpg' alt='')
-    h2.movie__name Apple Macbook Pro 2018
-    .movie__details
-      p
-        span.emoji-left &#x1F5A5;
-        |  15-inch Retina display
-      p
-        span.emoji-left &#x1F9EE;
-        |  6-core Intel i7, 8th generation
-      p
-        span.emoji-left &#x1F4BE;
-        |  1TB GB SSD of storage
-      p
-        span.emoji-left &#x1F4E6;
-        |  16GB of RAM
-    p.movie__description
-      | If you&apos;re after the latest and greatest movie from Apple, we suggest you look into the 2018 model of
-      | the 15-inch MacBook Pro with Touch Bar. The headline Touch Bar &ndash; a thin OLED display at the top of the
-      | keyboard which can be used for any number of things, whether that be auto-suggesting words as you type
-      | or offering Touch ID so you can log in with just your fingerprint &ndash; is of course included. It&apos;s
-      | certainly retained Apple&apos;s sense of style, but it comes at a cost. This is a pricey machine, so you may
-      | want to consider one of the Windows alternatives. But, if you&apos;re a steadfast Apple diehard, this is
-      | definitely the best movie for you!
-    a.movie__link(href='#')
-      | Buy now for $3199 
-      span.emoji-right &#x1F973; &#x1F60D;
+    .movie__container
+      h2.movie__name= title
+      .intro__box
+        p= description
+        p
+          a.movie__btn(href='movie')
+            span
+              | Begin
+      
