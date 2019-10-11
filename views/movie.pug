@@ -15,7 +15,7 @@ block content
           li.movie__details-entry= director
           li.movie__details-label
             | Genres:
-          li.movie__details-entry= genres
+          li.movie__details-entry= genres.join(", ")
     p.movie__rate
       | Please rate the movie!
     p.movie__rating.movie__footer
