@@ -187,3 +187,8 @@ h1::before {
     text-align: end;
     padding-top: 4rem;
 }
+
+.attribution__logo {
+    height: 50px;
+    padding-left: 5px;
+}
