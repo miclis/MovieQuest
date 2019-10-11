@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    padding: 6rem 4rem 3rem;
+    padding: 6rem 4rem 10rem;
     line-height: 1.7;
     font-family: "Nunito Sans", sans-serif;
     color: #555;
@@ -173,6 +173,22 @@ h1::before {
     background-color: #67b26f;
 }
 
+.movie__source {
+    padding: 0 6rem 3rem;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.movie__source a:link,
+.movie__source a:visited {
+    color: #999;
+}
+
+.movie__source a:hover,
+.movie__source a:active {
+    color: #555;
+}
+
 .emoji-left {
     font-size: 2rem;
     margin-right: 1rem;
@@ -181,9 +197,4 @@ h1::before {
 .emoji-right {
     font-size: 2rem;
     margin-left: 1rem;
-}
-
-.attribution {
-    text-align: end;
-    padding-top: 4rem;
 }
