@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    padding: 6rem 4rem 10rem;
+    padding: 6rem 4rem 3rem;
     line-height: 1.7;
     font-family: "Nunito Sans", sans-serif;
     color: #555;
@@ -51,7 +51,7 @@ h1::before {
     margin: 0 auto;
 }
 
-.laptop {
+.movie {
     width: 70rem;
     margin: 0 auto;
     background: white;
@@ -59,11 +59,11 @@ h1::before {
     position: relative;
 }
 
-.laptop__hero {
+.movie__hero {
     position: relative;
 }
 
-.laptop__hero::before {
+.movie__hero::before {
     content: '';
     display: block;
     height: 100%;
@@ -75,12 +75,12 @@ h1::before {
     opacity: .4;
 }
 
-.laptop__img {
+.movie__img {
     width: 100%;
     display: block;
 }
 
-.laptop__price {
+.movie__price {
     position: absolute;
     top: -3rem;
     right: -3rem;
@@ -100,8 +100,8 @@ h1::before {
     justify-content: center;
 }
 
-.laptop__back:link,
-.laptop__back:visited {
+.movie__back:link,
+.movie__back:visited {
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -119,13 +119,13 @@ h1::before {
     align-items: center;
 }
 
-.laptop__back:hover,
-.laptop__back:active {
+.movie__back:hover,
+.movie__back:active {
     background-color: white;
     color: #555;
 }
 
-.laptop__name {
+.movie__name {
     background: linear-gradient(to right, #67b26f, #4ca2cd);
     padding: 1.75rem 1rem;
     font-family: "Bungee Inline", sans-serif;
@@ -136,7 +136,7 @@ h1::before {
     word-spacing: 2px;
 }
 
-.laptop__details {
+.movie__details {
     background-color: #eee;
     padding: 4rem 6rem;
     font-size: 1.5rem;
@@ -145,14 +145,14 @@ h1::before {
     grid-gap: 1.75rem;
 }
 
-.laptop__description {
+.movie__description {
     padding: 5rem 6rem;
     font-size: 1.6rem;
     line-height: 1.8;
 }
 
-.laptop__link:link,
-.laptop__link:visited {
+.movie__link:link,
+.movie__link:visited {
     display: block;
     background-color: #5aaa9d;
     color: white;
@@ -168,25 +168,9 @@ h1::before {
     transition: all .3s;
 }
 
-.laptop__link:hover,
-.laptop__link:active {
+.movie__link:hover,
+.movie__link:active {
     background-color: #67b26f;
-}
-
-.laptop__source {
-    padding: 0 6rem 3rem;
-    color: #999;
-    font-size: 1.2rem;
-}
-
-.laptop__source a:link,
-.laptop__source a:visited {
-    color: #999;
-}
-
-.laptop__source a:hover,
-.laptop__source a:active {
-    color: #555;
 }
 
 .emoji-left {
@@ -197,4 +181,9 @@ h1::before {
 .emoji-right {
     font-size: 2rem;
     margin-left: 1rem;
+}
+
+.attribution {
+    text-align: end;
+    padding-top: 4rem;
 }
