@@ -8,7 +8,7 @@ router.get('/:id', function(req, res, next) {
             originalTitle: 'Mad Max Fury Road',
             polishTitle: 'Mad Max Kolekcja',
             year: ' (' + '2015' + ')',
-            director: 'Antoni Dupokrzakov vel Wilhelm von Kapustka',
+            director: 'Antoni Baroni vel Wilhelm von Kapustka',
             genres: ['Action', 'Thriller', 'Post-Apo']
           });
     } else {
