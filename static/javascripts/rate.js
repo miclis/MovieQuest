@@ -14,7 +14,6 @@ window.onload = () => {
                         },
                         body: JSON.stringify({rating: btn.dataset.rating})
                     });
-                    console.log('sent!');
                 } catch (error) {
                     console.log(error);
                 }

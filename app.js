@@ -29,7 +29,7 @@ app.use(
 );
 
 // static files
-app.use(express.static(path.join(__dirname, ''))); // only for dev
+// app.use(express.static(path.join(__dirname, ''))); // only for dev
 
 app.use('/', indexRouter);
 app.use('/movie', movieRouter);
