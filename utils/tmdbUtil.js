@@ -3,11 +3,11 @@ var conf = new Config();
 
 class Util {
     constructor() {}
-    movieRequestURL = movieId => {
+    movieRequestURL(movieId) {
         return `${conf.apiURL}${movieId}?api_key=${conf.api_key}&language=${conf.langParam}`;
     };
 
-    imageURL = posterPath => {
+    imageURL(posterPath) {
         return `${conf.posterURL}${posterPath}`;
     };
 }
