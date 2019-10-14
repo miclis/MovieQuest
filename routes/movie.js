@@ -28,6 +28,7 @@ router.get('/:id', async (req, res, next) => {
         const genres = transformGenres(movie.data.genres);
         const imageUrl = movie.provideImageUrl(movie.data.poster_path);
         const nextId = id + 1;
+        const nextTmdbId = movies.data[id].TMDBId;
 
         // 4. Render movie
         res.render('movie', {
@@ -37,7 +38,7 @@ router.get('/:id', async (req, res, next) => {
             tagline: tagline,
             genres: genres,
             imageUrl: imageUrl,
-            nextId: nextId
+            nextId: (nextId + '?tmdbId=' + nextTmdbId)
         });
     } else {
         let err = new Error('INVALID MOVIE ID');
@@ -51,9 +52,11 @@ router.post('/:id', async (req, res, next) => {
     const body = {
         rating: req.body.rating,
         id: req.params.id,
+        tmdbId: req.query.tmdbId,
         sessionId: req.sessionID,
     };
     console.log(body);
+    
     
     // await axios.post('/movie/2', body);
     // res.redirect(`/movie/3`);
