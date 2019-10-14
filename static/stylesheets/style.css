@@ -192,7 +192,11 @@ h1::before {
 }
 .movie__details-entry {
     font-variant: petite-caps;
-    padding-bottom: 4rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .movie__footer {

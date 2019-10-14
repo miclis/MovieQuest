@@ -5,32 +5,32 @@ block content
     .movie__container
       h2.movie__name= originalTitle + year
       .movie__box
-        img.movie__img(src='https://image.tmdb.org/t/p/w500/jZowUf4okNYuSlgj5iURE7CDMho.jpg' alt='')
+        img.movie__img(src=imageUrl alt='')
         ul.movie__details
           li.movie__details-label
             | Polish Title:
           li.movie__details-entry= polishTitle
           li.movie__details-label
-            | Director:
-          li.movie__details-entry= director
-          li.movie__details-label
             | Genres:
           li.movie__details-entry= genres.join(", ")
+          li.movie__details-label
+            | Tagline:
+          li.movie__details-entry= tagline
     p.movie__rate
       | Please rate the movie!
     p.movie__rating.movie__footer
-      a.movie__btn(href='#')
-        span
-          | 0
-      a.movie__btn(href='#')
+      a.movie__btn(href=nextId, data-rating=0)
+        | 0
+      a.movie__btn(href=nextId, data-rating=1)
         | 1
-      a.movie__btn(href='#')
+      a.movie__btn(href=nextId, data-rating=2)
         | 2
-      a.movie__btn(href='#')
+      a.movie__btn(href=nextId, data-rating=3)
         | 3
-      a.movie__btn(href='#')
+      a.movie__btn(href=nextId, data-rating=4)
         | 4
-      a.movie__btn(href='#') 5
-      a.movie__btn(href='overview.html')
+      a.movie__btn(href=nextId, data-rating=5)
+        | 5
+      a.movie__btn(href=nextId, data-rating='skip')
         span
           | Skip
