@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Machine Learning Data Gathering Project',
     description: 'Please help us gather data for our machine learning and optimization project :)',
-    id: req.sessionID // Id of the first movie
+    id: 1 // Id of the first movie
   });
 });
 
