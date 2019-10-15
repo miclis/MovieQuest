@@ -6,11 +6,14 @@ var Movie = require('../models/Movie');
 
 var movies = new MovieList();
 
+const minRange = 1;
+const maxRange = 200;
+
 /* GET movie page. */
 router.get('/:id', async (req, res, next) => {
     let id = parseInt(req.params.id);
 
-    if (id >= 1 && id <= 200) {
+    if (id >= minRange && id <= maxRange) {
         // 1. Get id from CSV
         const tmdbId = movies.data[id - 1].TMDBId;
 
@@ -28,7 +31,7 @@ router.get('/:id', async (req, res, next) => {
         const genres = transformGenres(movie.data.genres);
         const imageUrl = movie.provideImageUrl(movie.data.poster_path);
         const nextId = id + 1;
-        const nextTmdbId = movies.data[id].TMDBId;
+        const nextTmdbId = movies.data[id] != null ? movies.data[id].TMDBId : '';
 
         // 4. Render movie
         res.render('movie', {
@@ -38,7 +41,12 @@ router.get('/:id', async (req, res, next) => {
             tagline: tagline,
             genres: genres,
             imageUrl: imageUrl,
-            nextId: (nextId + '?tmdbId=' + nextTmdbId)
+            nextId: nextId <= maxRange ? (nextId + '?tmdbId=' + nextTmdbId) : 'end'
+        });
+    } else if (req.params.id == 'end') {
+        res.render('end', {
+            title: 'Machine Learning Data Gathering Project',
+            description: `Thank you for your answers!`
         });
     } else {
         let err = new Error('INVALID MOVIE ID');
