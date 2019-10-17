@@ -3,11 +3,12 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
-const logger = require('morgan');   // old way of importing due to 'deprecated' issue
+const logger = require('morgan'); // old way of importing due to 'deprecated' issue
 
 // routers
 import indexRouter from './routes/index';
 import movieRouter from './routes/movie';
+import endRouter from './routes/end';
 
 var app = express();
 
@@ -29,11 +30,12 @@ app.use(
 );
 
 // static files
-// app.use(express.static(path.join(__dirname, ''))); // use only for local dev server
+app.use(express.static(path.join(__dirname, ''))); // use only for local dev server
 
 // routes
 app.use('/', indexRouter);
 app.use('/movie', movieRouter);
+app.use('/end', endRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,6 +2,7 @@ import { Router } from 'express';
 import axios from 'axios';
 import MovieList from '../models/MovieList';
 import Movie from '../models/Movie';
+import { databaseApiURL } from '../config';
 
 const router = Router();
 let movies = new MovieList();
@@ -20,7 +21,6 @@ router.get('/:id', async (req, res, next) => {
         // 2. New Movie object
         let movie = new Movie();
 
-        console.log(tmdbId)
         // 3. Get data
         await movie.getMovieTmdb(tmdbId);
 
@@ -32,7 +32,6 @@ router.get('/:id', async (req, res, next) => {
         const genres = transformGenres(movie.data.genres);
         const imageUrl = movie.provideImageUrl(movie.data.poster_path);
         const nextId = id + 1;
-        const nextTmdbId = movies.data[id] != null ? movies.data[id].TMDBId : '';
 
         // 4. Render movie
         res.render('movie', {
@@ -42,13 +41,10 @@ router.get('/:id', async (req, res, next) => {
             tagline: tagline,
             genres: genres,
             imageUrl: imageUrl,
-            nextId: nextId <= MAX_RANGE ? (nextId + '?tmdbId=' + nextTmdbId) : 'end'
+            nextId: nextId <= MAX_RANGE ? nextId : 'end'
         });
     } else if (req.params.id == 'end') {
-        res.render('end', {
-            title: 'Machine Learning Data Gathering Project',
-            description: `Thank you for your answers!`
-        });
+        res.redirect('/end');
     } else {
         let err = new Error('INVALID MOVIE ID');
         err.status = 404;
@@ -57,20 +53,17 @@ router.get('/:id', async (req, res, next) => {
 });
 
 /* POST rate movie request */
-router.post('/:id', async (req, res, next) => {    
+router.post('/:id', async (req, res, next) => {
+    // 1. Prepare tiny request body
     const body = {
         rating: req.body.rating,
         id: req.params.id,
-        tmdbId: req.query.tmdbId,
-        sessionId: req.sessionID,
+        sessionId: req.sessionID
     };
-    console.log(body);
-    
-    
-    // await axios.post('/movie/2', body);
-    // res.redirect(`/movie/3`);
-});
 
+    // 2. Send data to database API
+    // await axios.post(databaseApiURL, body);
+});
 
 export default router;
 
