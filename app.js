@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var expressSession = require('express-session');
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import expressSession from 'express-session';
+const logger = require('morgan');   // old way of importing due to 'deprecated' issue
 
 // routers
-var indexRouter = require('./routes/index');
-var movieRouter = require('./routes/movie');
+import indexRouter from './routes/index';
+import movieRouter from './routes/movie';
 
 var app = express();
 
@@ -29,8 +29,9 @@ app.use(
 );
 
 // static files
-// app.use(express.static(path.join(__dirname, ''))); // only for dev
+// app.use(express.static(path.join(__dirname, ''))); // use only for local dev server
 
+// routes
 app.use('/', indexRouter);
 app.use('/movie', movieRouter);
 
@@ -50,4 +51,4 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-module.exports = app;
+export default app;

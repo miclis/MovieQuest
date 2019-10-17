@@ -1,15 +1,9 @@
-var Config = require('../config');
-var conf = new Config();
+import { apiURL, api_key, langParam, posterURL } from '../config';
 
-class Util {
-    constructor() {}
-    movieRequestURL(movieId) {
-        return `${conf.apiURL}${movieId}?api_key=${conf.api_key}&language=${conf.langParam}`;
-    };
+export const movieRequestURL = movieId => {
+    return `${apiURL}${movieId}?api_key=${api_key}&language=${langParam}`;
+};
 
-    imageURL(posterPath) {
-        return `${conf.posterURL}${posterPath}`;
-    };
-}
-
-module.exports = Util;
+export const imageURL = posterPath => {
+    return `${posterURL}${posterPath}`;
+};

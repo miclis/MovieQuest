@@ -1,19 +1,16 @@
-var fs = require('fs');
-var csv = require('fast-csv');
-var path = require('path');
-var Config = require('../config');
+import fs from 'fs';
+import csv from 'fast-csv'
+import path from 'path'
 
-var conf = new Config();
+import { csvPath } from '../config'
 
-class MovieList {
+export default class MovieList {
     constructor() {
         this.data = [];
-        fs.createReadStream(path.join(__dirname, conf.csvPath))
+        fs.createReadStream(path.join(__dirname, csvPath))
             .pipe(csv.parse({ headers: true, delimiter: ';', rowDelimiter: '\n' }))
             .on('data', row => {
                 this.data.push(row);
             });
     }
 }
-
-module.exports = MovieList;

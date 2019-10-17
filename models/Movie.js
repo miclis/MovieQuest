@@ -1,14 +1,14 @@
-const axios = require('axios');
-var tmdbUtil = require('../utils/tmdbUtil');
+import axios from 'axios'
+import * as util from '../utils/tmdbUtil'
 
-var util = new tmdbUtil();
-
-class Movie {
+export default class Movie {
     constructor() {
     }
 
     async getMovieTmdb(tmdbid) {
         try {
+            console.log(util.movieRequestURL(tmdbid));
+            
             const res = await axios.get(util.movieRequestURL(tmdbid));
             this.data = res.data;
         } catch (error) {
@@ -22,5 +22,3 @@ class Movie {
         return util.imageURL(posterPath);
     }
 }
-
-module.exports = Movie;

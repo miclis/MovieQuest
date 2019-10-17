@@ -1,25 +1,26 @@
-var express = require('express');
-var router = express.Router();
-const axios = require('axios');
-var MovieList = require('../models/MovieList');
-var Movie = require('../models/Movie');
+import { Router } from 'express';
+import axios from 'axios';
+import MovieList from '../models/MovieList';
+import Movie from '../models/Movie';
 
-var movies = new MovieList();
+const router = Router();
+let movies = new MovieList();
 
-const minRange = 1;
-const maxRange = 200;
+const MIN_RANGE = 1;
+const MAX_RANGE = 200;
 
 /* GET movie page. */
 router.get('/:id', async (req, res, next) => {
     let id = parseInt(req.params.id);
 
-    if (id >= minRange && id <= maxRange) {
+    if (id >= MIN_RANGE && id <= MAX_RANGE) {
         // 1. Get id from CSV
         const tmdbId = movies.data[id - 1].TMDBId;
 
         // 2. New Movie object
         let movie = new Movie();
 
+        console.log(tmdbId)
         // 3. Get data
         await movie.getMovieTmdb(tmdbId);
 
@@ -41,7 +42,7 @@ router.get('/:id', async (req, res, next) => {
             tagline: tagline,
             genres: genres,
             imageUrl: imageUrl,
-            nextId: nextId <= maxRange ? (nextId + '?tmdbId=' + nextTmdbId) : 'end'
+            nextId: nextId <= MAX_RANGE ? (nextId + '?tmdbId=' + nextTmdbId) : 'end'
         });
     } else if (req.params.id == 'end') {
         res.render('end', {
@@ -71,7 +72,7 @@ router.post('/:id', async (req, res, next) => {
 });
 
 
-module.exports = router;
+export default router;
 
 const transformGenres = genres => {
     let output = [];
