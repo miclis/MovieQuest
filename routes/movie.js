@@ -56,13 +56,13 @@ router.get('/:id', async (req, res, next) => {
 router.post('/:id', async (req, res, next) => {
     // 1. Prepare tiny request body
     const body = {
-        rating: req.body.rating,
-        id: req.params.id,
-        sessionId: req.sessionID
+        rate: req.body.rating,
+        movieId: req.params.id,
+        userId: req.sessionID
     };
 
     // 2. Send data to database API
-    // await axios.post(databaseApiURL, body);
+    await axios.post(databaseApiURL, body);
 });
 
 export default router;
