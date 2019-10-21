@@ -8,16 +8,16 @@ block content
         img.movie__img(src=imageUrl alt='')
         ul.movie__details
           li.movie__details-label
-            | Polish Title:
+            | Tytuł:
           li.movie__details-entry= polishTitle
           li.movie__details-label
-            | Genres:
+            | Genres / Gatunek:
           li.movie__details-entry= genres.join(", ")
           li.movie__details-label
-            | Tagline:
+            | Tagline / Opis:
           li.movie__details-entry= tagline
     p.movie__rate
-      | Please rate the movie!
+      | Rate / Oceń!
     p.movie__rating.movie__footer
       a.movie__btn(href=nextId, data-rating=0)
         | 0
@@ -31,6 +31,6 @@ block content
         | 4
       a.movie__btn(href=nextId, data-rating=5)
         | 5
-      a.movie__btn(href=nextId, data-rating='skip')
-        span
-          | Skip
+      a.movie__btn.movie__btn-skip(href=nextId, data-rating='skip')
+        span Not seen
+        span Nie widziałem

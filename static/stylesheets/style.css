@@ -101,6 +101,9 @@ h1::before {
     justify-content: center;
 }
 
+.movie__btn {
+    text-align: center;
+}
 .movie__btn:link,
 .movie__btn:visited {
     font-size: 1.5rem;
@@ -121,6 +124,11 @@ h1::before {
 .movie__btn:active {
     background-color: white;
     color: #555;
+}
+
+.movie__rating .movie__btn-skip {
+    width: max-content;
+    display: inherit;
 }
 
 .movie__name {
@@ -146,11 +154,11 @@ h1::before {
 
 .movie__rating.movie__footer {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    padding: 5rem 10rem 2rem;
+    padding: 5rem 8rem 2rem;
 }
 
 .movie__rate {
-    padding: 0rem 6rem;
+    padding: 0rem 12rem;
     font-size: 2.6rem;
     font-family: cursive;
     left: 15rem;
