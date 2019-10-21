@@ -5,7 +5,7 @@ export const api_key = 'f7b51d5758abad3b84e3c0dbba3591e2';
 export const langParam = 'pl-PL';
 
 // Database API
-export const databaseApiURL = '';
+export const databaseApiURL = 'https://api.com';
 
 // Data
 export const csvPath = '../static/data/movies.csv';

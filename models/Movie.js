@@ -6,9 +6,7 @@ export default class Movie {
     }
 
     async getMovieTmdb(tmdbid) {
-        try {
-            console.log(util.movieRequestURL(tmdbid));
-            
+        try {            
             const res = await axios.get(util.movieRequestURL(tmdbid));
             this.data = res.data;
         } catch (error) {

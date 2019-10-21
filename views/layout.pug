@@ -3,6 +3,11 @@ html
   head
     title The Movie Survey
     link(rel='stylesheet', href='/static/stylesheets/style.css')
+    script(src='/static/data/publicKeyPlaceHolder.js')
+    script(src='/static/javascripts/encoding.js')
+    script(src='/static/javascripts/encoding-indexes.js')
+    script(src='/static/javascripts/converter-wrapper.js')
+    script(src='/static/javascripts/rsa-wrapper.js')
     script(src='/static/javascripts/rate.js')
   body
     .container
@@ -13,4 +18,3 @@ html
         p.attribution
           span This product uses the TMDb API but is not endorsed or certified by TMDb.
           img.attribution__logo(src='/static/images/tmdb_logo.svg' alt='')
-        

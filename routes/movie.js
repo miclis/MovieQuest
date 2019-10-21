@@ -3,9 +3,12 @@ import axios from 'axios';
 import MovieList from '../models/MovieList';
 import Movie from '../models/Movie';
 import { databaseApiURL } from '../config';
+import rsaWrapper from '../utils/rsa-wrapper';
 
 const router = Router();
 let movies = new MovieList();
+const rsa = new rsaWrapper();
+rsa.loadPrivateKey('./utils/keys');
 
 const MIN_RANGE = 1;
 const MAX_RANGE = 200;
@@ -54,6 +57,13 @@ router.get('/:id', async (req, res, next) => {
 
 /* POST rate movie request */
 router.post('/:id', async (req, res, next) => {
+    console.log('Encrypted:');
+    console.log(req.body);
+    console.log('Decrypted');
+    req.body.rating = rsa.decrypt(req.body.rating);
+    console.log(req.body);
+    
+    /*
     // 1. Prepare tiny request body
     const body = {
         rate: req.body.rating == 'skip' ? null : req.body.rating,
@@ -62,7 +72,12 @@ router.post('/:id', async (req, res, next) => {
     };
 
     // 2. Send data to database API
-    // await axios.post(databaseApiURL, body);
+    try {
+        await axios.post(databaseApiURL, body);
+    } catch (error) {
+        console.log(error);
+    }
+    */
 });
 
 export default router;
