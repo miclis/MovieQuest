@@ -56,7 +56,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/:id', async (req, res, next) => {
     // 1. Prepare tiny request body
     const body = {
-        rate: req.body.rating,
+        rate: req.body.rating == 'skip' ? null : req.body.rating,
         movieId: req.params.id,
         userId: req.sessionID
     };
