@@ -9,13 +9,13 @@ export default class rsaWrapper {
         this.key.generateKeyPair(2048, 65537); // 2048 — key length, 65537 open exponent
     }
 
-    generate = () => {
+    generate() {
         // Save keys as pem line in pkcs8
         fs.writeFileSync(path.resolve(__dirname, 'keys', 'private.pem'), this.key.exportKey('pkcs8-private-pem'));
         fs.writeFileSync(path.resolve(__dirname, 'keys', 'public.pem'), this.key.exportKey('pkcs8-public-pem'));
     };
 
-    decrypt = message => {
+    decrypt(message) {
         let enc = crypto.privateDecrypt(
             {
                 key: this.privateKey,
@@ -26,7 +26,7 @@ export default class rsaWrapper {
         return enc.toString();
     };
 
-    loadPrivateKey = keyPath => {
+    loadPrivateKey(keyPath) {
         try {
             this.privateKey = fs.readFileSync(path.resolve(keyPath, 'private.pem'));
         } catch (error) {
