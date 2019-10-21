@@ -62,7 +62,7 @@ router.post('/:id', async (req, res, next) => {
     };
 
     // 2. Send data to database API
-    await axios.post(databaseApiURL, body);
+    // await axios.post(databaseApiURL, body);
 });
 
 export default router;
