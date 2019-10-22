@@ -8,10 +8,7 @@
 
                     try {
                         rsaWrapper
-                            .publicEncrypt(
-                                window.rsaWrapper.publicKey,
-                                btn.dataset.rating
-                            )
+                            .publicEncrypt(window.rsaWrapper.publicKey, JSON.stringify({ rating: btn.dataset.rating }))
                             .then(async encrypted => {
                                 await fetch('', {
                                     method: 'post',
@@ -19,7 +16,7 @@
                                         Accept: 'application/json',
                                         'Content-Type': 'application/json'
                                     },
-                                    body: JSON.stringify({ rating: encrypted })
+                                    body: JSON.stringify({ content: encrypted })
                                 });
                             });
                     } catch (error) {

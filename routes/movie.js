@@ -58,26 +58,10 @@ router.get('/:id', async (req, res, next) => {
 /* POST rate movie request */
 router.post('/:id', async (req, res, next) => {
     console.log('Encrypted:');
-    console.log(req.body);
+    console.log(req.body.content);
     console.log('Decrypted');
-    req.body.rating = rsa.decrypt(req.body.rating);
-    console.log(req.body);
-    
-    /*
-    // 1. Prepare tiny request body
-    const body = {
-        rate: req.body.rating == 'skip' ? null : req.body.rating,
-        movieId: req.params.id,
-        userId: req.sessionID
-    };
-
-    // 2. Send data to database API
-    try {
-        await axios.post(databaseApiURL, body);
-    } catch (error) {
-        console.log(error);
-    }
-    */
+    req.body.content = JSON.parse(rsa.decrypt(req.body.content));
+    console.log(req.body.content);
 });
 
 export default router;
